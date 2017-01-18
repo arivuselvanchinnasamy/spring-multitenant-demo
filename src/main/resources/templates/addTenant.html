@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Data JPA Multitenant Demo Application</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Bootstrap -->
+<link rel='stylesheet' href='/webjars/bootstrap/3.3.5/css/bootstrap.min.css' />
+<link rel='stylesheet' href='/webjars/font-awesome/4.7.0/css/font-awesome.min.css' />
+</head>
+<body>
+<div class="container-fluid">
+		<div class="page-header">
+           <h1>Spring Data JPA Multitenant Demo Application</h1>
+        </div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<!--  <div class="col-sm-8 col-sm-offset-2"> -->
+				<fieldset>
+					<legend>
+						<i class="glyphicon icon-database-plus"></i> Add Tenant
+					</legend>
+					<form action="#" th:action="@{/addTenant}" th:object="${tenant}" method="post">
+						  <div class="col-xs-12 form-group">
+					        <label for="firstName" class="col-lg-3 control-label">Datasource Key</label>
+					        <div class="col-lg-6">
+					          <input type="text" class="form-control" name="dataSourceKey" id="dataSourceKey" placeholder="Datasource Key" th:field="*{dataSourceKey}" />
+					        </div>
+				     	 </div> 
+				     	   <div class="col-xs-12 form-group">
+					        <label for="lastName" class="col-lg-3 control-label">Datasource Schema Name</label>
+					        <div class="col-lg-6">
+					          <input type="text" class="form-control" name="dataSourceSchemaName" id="dataSourceSchemaName" placeholder="Datasource Schema Name" th:field="*{dataSourceSchemaName}" />
+					        </div>
+					      </div>
+						 <div class="col-xs-12 form-group">
+			       			<label for="department" class="col-lg-3 control-label">User Name</label>
+			        		<div class="col-lg-6">
+			          			<input type="text" class="form-control" name="dataSourceUserName" id="dataSourceUserName" placeholder="User Name" th:field="*{dataSourceUserName}" />
+							</div>
+			    		</div>
+			           <div class="col-xs-12 form-group">
+			      		 <label for="office" class="col-lg-3 control-label">Password</label>
+			       		 <div class="col-lg-6">
+			         	 	<input type="password" class="form-control" name="dataSourcePassword" id="dataSourcePassword" placeholder="Password" th:field="*{dataSourcePassword}" />
+			       		 </div>
+			   		   </div>
+			   		    <div class="col-xs-12 form-group">
+					        <div class="col-lg-offset-3 col-lg-10">
+					        	<button type="submit" class="btn btn-success" name="action" value="save">save</button>
+								<button type="submit" class="btn btn-info" name="action" value="cancel">cancel</button>		          
+					        </div>
+					   </div>
+					</form>
+				</fieldset>		
+        </div>
+       </div>
+	  </div>
+	  <script src="http://code.jquery.com/jquery.js"></script>
+	<script src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Data JPA Multitenant Demo Application</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Bootstrap -->
+<link rel='stylesheet' href='/webjars/bootstrap/3.3.5/css/bootstrap.min.css' />
+<link rel='stylesheet' href='/webjars/font-awesome/4.7.0/css/font-awesome.min.css' />
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="page-header">
+           <h1>Spring Data JPA Multitenant Demo Application</h1>
+        </div>		
+		<div class="row">
+		 <div class="col-md-10 col-md-offset-1">
+		    <fieldset>
+		 	  <legend> <i class="glyphicon glyphicon-user"></i> Edit Employee Information</legend>
+		 	  <form action="#" th:action="@{/tenant}+'/'+${tenantId}+'/editEmployee/'+${employee.id}" th:object="${employee}" method="post" enctype="multipart/form-data">
+		     <div class="col-xs-12 form-group">
+		        <label for="firstName" class="col-lg-3 control-label">First Name</label>
+		        <div class="col-lg-6">
+		          <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" th:field="*{firstName}" />
+		        </div>
+		      </div> 
+		      <div class="col-xs-12 form-group">
+		        <label for="lastName" class="col-lg-3 control-label">Last Name</label>
+		        <div class="col-lg-6">
+		          <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" th:field="*{lastName}" />
+		        </div>
+		      </div>
+		 	 <div class="col-xs-12 form-group">
+				<label for="email" class="col-lg-3 control-label">Email</label>
+				<div class="col-lg-6">
+					<input type="text" class="form-control" name="email" id="email"	placeholder="Email" th:field="*{email}" />
+				</div>
+			</div>
+			<div class="col-xs-12 form-group">
+		        <label for="department" class="col-lg-3 control-label">Department</label>
+		        <div class="col-lg-6">
+		          <input type="text" class="form-control" name="department" id="department" placeholder="Department Name" th:field="*{department}" />
+		        </div>
+		      </div>
+		          <div class="col-xs-12 form-group">
+		        <label for="office" class="col-lg-3 control-label">Office</label>
+		        <div class="col-lg-6">
+		          <input type="text" class="form-control" name="office" id="office" placeholder="Office" th:field="*{office}" />
+		        </div>
+		      </div>
+		      <div class="col-xs-12 form-group">
+		        <div class="col-lg-offset-3 col-lg-10">
+		        	<button type="submit" class="btn btn-success" name="action" value="save" data-th-text="save">save</button>
+					<button type="submit" class="btn btn-info" name="action" value="cancel" data-th-text="cancel">cancel</button>		          
+		        </div>
+		      </div>
+		    </form>
+		   </fieldset>
+        </div>
+       </div>
+	  </div>
+ </body>
+</html>
